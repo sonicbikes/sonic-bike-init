@@ -1,3 +1,4 @@
+# General helper script
 # When connected via USB run this script in order to:
 # Grab a shared internet connection if we are plugged into USB
 /sbin/route add default gw 192.168.7.1

@@ -26,29 +26,21 @@ fi
 # We use the ps aux method as it seems more reliable than a simple killall
 # The killas are encapsulated in if statements so systemd reporting doesnt
 # get clogged up
-N=$(ps aux | grep gpsd_lua | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep gpsd_lua | awk '{ print $2}' | xargs kill -9
-fi
-N=$(ps aux | grep bicrophonic1 | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep bicrophonic1 | awk '{ print $2}' | xargs kill -9
-fi
-N=$(ps aux | grep SonicBikeAudioEngine | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep SonicBikeAudioEngine | awk '{ print $2}' | xargs kill -9
-fi
-N=$(ps aux | grep audiotest.sh | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep audiotest.sh | awk '{ print $2}' | xargs kill -9
-fi
-N=$(ps aux | grep worms | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep worms | awk '{ print $2}' | xargs kill -9
-fi
-N=$(ps aux | grep swamp | grep -v grep)
-if [ ! -z "$N" ]; then
-    ps aux | grep swamp | awk '{ print $2}' | xargs kill -9
-fi
 
+# Function to find all processes and kill them
+KillProcess () {
+    N=$(ps aux | grep $1 | grep -v grep)
+    if [ ! -z "$N" ]; then
+        ps aux | grep $1 | awk '{ print $2}' | xargs kill -9
+    fi
+}
+
+# Kill all running processes
+KillProcess gpsd_lua
+KillProcess swamp
+KillProcess swamp_played
+KillProcess bicrophonic1
+KillProcess SonicBikeAudioEngine
+KillProcess audiotest.sh
+KillProcess worms
 
