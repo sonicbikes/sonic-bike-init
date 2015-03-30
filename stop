@@ -38,7 +38,7 @@ KillProcess () {
 # Kill all running processes
 KillProcess gpsd_lua
 KillProcess swamp
-KillProcess swamp_played
+KillProcess swamp_playd
 KillProcess bicrophonic1
 KillProcess SonicBikeAudioEngine
 KillProcess audiotest.sh
