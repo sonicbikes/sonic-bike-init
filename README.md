@@ -1,7 +1,8 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup sonic bike system and sonic bike services.
+Scripts used to startup the sonic bike system.
+Full instructions to follow...
 
 Create a directory for the sd card to mount to
 -----------------------------------------------------
