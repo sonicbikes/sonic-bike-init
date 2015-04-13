@@ -39,7 +39,7 @@ fi
 # Where should we log startup messages?
 LOGFILE=$(grep '"logfile"' /home/sonic/sdcard/config.json | cut -d '"' -f4)
 
-# Which mode should we startup in?
+# Which mode (app) should we startup?
 MODE=$(grep '"mode"' $CONFIG | cut -d '"' -f4)
 echo "[start] Found mode: $MODE" 
 
@@ -49,8 +49,6 @@ chmod 777 /home/sonic/sdcard -R
 # Setup the soundcard. Needs a little time before volume can be set
 sleep 1
 amixer -c 0 set PCM 100% > /dev/null  # Set initital audio volume to full
-
-exit 1
 
 # SELECT WHICH MODE (Application) TO LOAD: This is set in the config file on the sd card
 if [ X"$MODE" = X"app-findingsong" ]; then
@@ -62,8 +60,6 @@ elif [ X"$MODE" = X"app-swamp" ]; then
     # Load the old system
     echo "--------------------startup olschool swamp system-----------------------" 
     ./swamp & > /dev/null
-    #./swamp_playd  & > /dev/null
-    #./bicrophonic1 & > /dev/null
 else
     echo "--------------------startup error-----------------------" >> $LOGFILE
     echo "[start] No \"mode\" set. Edit the config and specify 'app-swamp' OR 'app-findingsong' mode " >> $LOGFILE
