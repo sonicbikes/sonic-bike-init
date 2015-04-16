@@ -13,7 +13,7 @@ Check if you are running kernel version "3.8.13-bone47":
 
     $ uname -a
 
-###skip this next section if you are running the correct version* 
+###Skip this next section if you are running the correct Kernel
 If you have an earler or later version then we can't be sure that things will work properly as we found errors with audio playback in later versions of the kernal. To install the correct version of the kernel, as root (not sudo). You may need to perform these actions while within an SD card as there needs to be space to download large files:
 
     $ wget https://github.com/RobertCNelson/linux-dev/archive/3.8.13-bone47.tar.gz
