@@ -21,7 +21,7 @@ If you have an earler or later version then we can't be sure that things will wo
     $ tar -xvf 3.8.13-bone47.tar
     $ cd linux-dev-3.8.13-bone47
     $ sudo apt-get install bc lzma lzop libncurses5-dev 
-    $ ./build_kernel.sh
+    $ ./build_deb.sh
 
 ###Configure the OS
 [TODO]
