@@ -29,6 +29,7 @@ If you have an earler or later version then we can't be sure that things will wo
 ## B. Init scripts
 [TODO]
 Clone this repository and setup the systemd service so it auto-starts
+
     cd /home/sonic
     git clone https://github.com/sonicbikes/sonic-bike-init.git
     ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
