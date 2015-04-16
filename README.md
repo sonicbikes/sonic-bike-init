@@ -1,11 +1,14 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup the sonic bike system. There are three elements that need configering in order to get the system up and running:
+Scripts used to startup the sonic bike system. There are four seperate elements that need to be installed/configured in order to get the system up and running on a Beaglebone Black:
 
-- Operorating system gi
+- A. Operating system: 3.8.13-bone47.
+- B. Init scripts: Contains ultility scripts for auto-start etc.
+- C. The sonic bike software: app-findingsong OR app-swap.
+- D. SD Card: Contains a configeration file, sound and map files.
 
-To Install everything from scratch
+A. Operating system: Check you are running the correct version
 ------------------------------------------------
 Check if you are running kernel version "3.8.13-bone47". If you have an earler or later version then we can't be sure that things will work properly as we found errors with audio playback in later versions of the kernal. Use the following command to find out which version of the kernal you are running:
 
@@ -20,8 +23,15 @@ To install the correct version of the kernel, as root (not sudo). You may need t
     $ sudo apt-get install bc lzma lzop libncurses5-dev 
     $ ./build_kernel.sh
 
-Create a directory for the sd card to mount to
------------------------------------------------------
+## B. Init scripts
+[TODO]
+
+## C.The sonic bike software:
+[TODO]
+
+## D. The SD card: Setup
+
+A directory need to be created where the SD card will mount to:
     
     sudo mkdir /home/sonic/sdcard
 
