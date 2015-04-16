@@ -25,6 +25,9 @@ To install the correct version of the kernel, as root (not sudo). You may need t
 
 ## B. Init scripts
 [TODO]
+Create systemd service so that the sonic bikle system auto-starts:
+
+   sudo ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
 
 ## C.The sonic bike software:
 [TODO]
@@ -37,8 +40,5 @@ A directory need to be created where the SD card will mount to:
 
 This directory should contain a configeration file named config.json and folders containing audio files
 
-Create a systemd service so conic bike auto starts
------------------------------------------------------
 
-    sudo ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
 
