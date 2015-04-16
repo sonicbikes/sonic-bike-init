@@ -5,7 +5,7 @@ Scripts used to startup the sonic bike system. There are four seperate elements 
 
 - A. Operating system: 3.8.13-bone47.
 - B. Init scripts: Contains ultility scripts for auto-start etc.
-- C. The sonic bike software: app-findingsong OR app-swap.
+- C. The sonic bike software: app-findingsong OR app-swamp.
 - D. SD Card: Contains a configeration file, sound and map files.
 
 ## A. Operating system
@@ -34,7 +34,7 @@ Clone this repository and setup the systemd service so it auto-starts
     git clone https://github.com/sonicbikes/sonic-bike-init.git
     ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
 
-## C.The sonic bike software:
+## C.The sonic bike software: app-findingsong OR app-swamp.
 [TODO]
 
 ## D. The SD card: Setup
