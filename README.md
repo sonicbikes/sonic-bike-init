@@ -35,7 +35,11 @@ Clone this repository and setup the systemd service so it auto-starts
     ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
 
 ## C.The sonic bike software: app-findingsong OR app-swamp.
-[TODO]
+There are currently two versions of the software available "app-swamp" which is the --original-- version and "app-findingsong" which is the latest version. The configeration file found on the sd card (instructions below) determines which of these should load up. Both versions of the software can be obtained from github:
+
+    cd /home/sonic
+    git clone https://github.com/sonicbikes/app-findingsong.git
+    git clone https://github.com/sonicbikes/app-swamp.git
 
 ## D. The SD card: Setup
 
