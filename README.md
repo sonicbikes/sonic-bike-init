@@ -1,15 +1,17 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup the sonic bike system.
+Scripts used to startup the sonic bike system. There are three elements that need configering in order to get the system up and running:
+
+- Operorating system gi
 
 To Install everything from scratch
 ------------------------------------------------
-Check if you are running kernel version "3.8.13-bone47". If you have an earler or later version then we cant be sure that things will work properly as we found errors with audio playback in later versions of the kernal:
+Check if you are running kernel version "3.8.13-bone47". If you have an earler or later version then we can't be sure that things will work properly as we found errors with audio playback in later versions of the kernal. Use the following command to find out which version of the kernal you are running:
 
     $ uname -a
     
-To install the correct version of the kernel, as root (not sudo):
+To install the correct version of the kernel, as root (not sudo). You may need to perform these actions while within an SD card as there needs to be space to download large files:
 
     $ wget https://github.com/RobertCNelson/linux-dev/archive/3.8.13-bone47.tar.gz
     $ gunzip 3.8.13-bone47.tar.gz
