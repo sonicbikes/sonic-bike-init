@@ -66,6 +66,6 @@ else
     echo "--------------------startup error-----------------------" >> $LOGFILE
     echo "[start] No \"mode\" set. Edit the config and specify 'app-swamp' OR 'app-findingsong' mode " >> $LOGFILE
     echo "[start error] Nothing has started. Exited. $CONFIG \n" >> $LOGFILE
-    echo "[start error] No mode set in '$CONFIG': normal OR random" >> >> $LOGFILE
+    echo "[start error] No mode set in '$CONFIG': normal OR random" >> $LOGFILE
 fi
 
