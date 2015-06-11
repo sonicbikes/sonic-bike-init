@@ -1,7 +1,7 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup the sonic bike system. There are five seperate elements that need to be installed/configured in order to get the system up and running on a Raspberry PI V2 Model B and/or a Beagleboard xM.
+Scripts used to startup the sonic bike system. There are four seperate elements that need to be installed/configured in order to get the system up and running on a Raspberry PI V2 Model B and/or a Beagleboard xM.
 
 A. The Hardware. <br />
 B. Operating system. <br />
@@ -19,9 +19,9 @@ The latest system is working with a RaspberryPi V2 Model B with debian Wheezy. t
 - Fast 8GB (or more) USB Stick.
 
 
-### B. Operating System
+## B. Operating System
 
-## SPECIFIC " Beagleboard xM" INSTRUCTIONS
+### SPECIFIC " Beagleboard xM" INSTRUCTIONS
 Has been tested with and works for: Debian: Linux arm 4.0.2-armv7
 
 Download a prebuilt Debian image and verify the image:
