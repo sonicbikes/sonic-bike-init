@@ -67,11 +67,6 @@ Finally, to make the system auto-start:
 
 	$ sudo cp ~/sonic-bike-init/sonic-bike.service  /etc/systemd/system/sonic-bike.service
 	$ sudo systemctl enable sonic-bike.service
-	$ sudo systemctl start sonic-bike.service
-
-Now you should hear some audio... And if you reboot the system should start automatically:
-
-    $ sudo reboot
 
 ## D. Prep a USB Stick
 
@@ -103,9 +98,11 @@ Finally, to make the system auto-start:
 
 	$ sudo cp ~/sonic-bike-init/sonic-bike.service  /etc/systemd/system/sonic-bike.service
 	$ sudo systemctl enable sonic-bike.service
-	
+	$ sudo systemctl start sonic-bike.service
 
+Now you should hear some audio... And if you reboot the system, everything should start automagically:
 
+	$ Sudo reboot
 
 Archived Instructions
 ============================
