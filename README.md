@@ -1,19 +1,121 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup the sonic bike system. There are four seperate elements that need to be installed/configured in order to get the system up and running on a Beaglebone Black:
+Scripts used to startup the sonic bike system. There are five seperate elements that need to be installed/configured in order to get the system up and running on a Raspberry PI V2 Model B and/or a Beagleboard xM.
 
-- A. Operating system: 3.8.13-bone47.
-- B. Init scripts: Contains ultility scripts for auto-start etc.
-- C. The sonic bike software: app-findingsong OR app-swamp.
-- D. SD Card: Contains a configeration file, sound and map files.
+A. The Hardware. <br />
+B. Operating system. <br />
+C. The software.<br />
+E. USB Stick: Contains a configeration file, sound and map files.
 
-## A. Operating system
+## A. The Hardware
+The latest system is working with a RaspberryPi V2 Model B with debian Wheezy. the system has also been tested with a beagleboard xM. We got the system working with a Beagle Bone Black though we have experience audio glitches. To Build a complete system we have used:
+
+- RaspberyPi V2 Model B.
+- 12v Amp + speakers.
+- 12v battery. 
+- Usb GPS device, we have used: G-START IV.
+- 12v to 5v convertor to power the Raspberry pi from the 12v battery. 
+- Fast 8GB (or more) USB Stick.
+
+
+### B. Operating System
+
+## SPECIFIC " Beagleboard xM" INSTRUCTIONS
+Has been tested with and works for: Debian: Linux arm 4.0.2-armv7
+
+Download a prebuilt Debian image and verify the image:
+
+	$ wget https://rcn-ee.com/rootfs/2015-05-08/microsd/bbxm-debian-8.0-console-armhf-2015-05-08-2gb.img.xz
+	$ md5sum bbxm-debian-8.0-console-armhf-2015-05-08-2gb.img.xz 13371bcf77921b5955c02b91d3a49534 bbxm-debian-8.0-console-armhf-2015-05-08-2gb.img.xz
+
+Uncompress:
+
+	$ unxz bbxm-debian-8.0-console-armhf-2015-05-08-2gb.img.xz
+
+Then burn to an SD card:
+
+	$ sudo dd bs=4M if=bbxm-debian-8.0-console-armhf-2015-05-08-2gb.img of=/dev/XXX
+
+Login to the beagleboard xM and resize the partition (debian pass: temppwd):
+
+	$ cd /opt/scripts/tools
+	$ git pull
+	$ ./grow_partition.sh
+	$ sudo reboot
+	
+Now update the OS and install your favourite text editor (I like vim):
+
+	$ sudo apt-get update
+	$ sudo apt-get install vim
+
+## C. The Software
+Move to sonic home directory and download the init scripts:
+
+	$ cd ~
+	$ git clone https://github.com/sonicbikes/sonic-bike-init.git
+
+And download the 'finding song' version of the app:
+
+	$ git clone https://github.com/sonicbikes/app-findingsong.git
+
+And some test audio along with a config file:
+
+	$ git clone https://github.com/sonicbikes/testaudio.git
+
+Finally, to make the system auto-start:
+
+	$ sudo cp ~/sonic-bike-init/sonic-bike.service  /etc/systemd/system/sonic-bike.service
+	$ sudo systemctl enable sonic-bike.service
+	$ sudo systemctl start sonic-bike.service
+
+Now you should hear some audio... And if you reboot the system should start automatically:
+
+    $ sudo reboot
+
+## D. Prep a USB Stick
+
+Now prepare a USB stick to mount/save all the audio. First format it as FAT32 then plug into the device and: 
+
+	$ mkdir /home/sonic/audio
+	
+And check its visible to the OS and mount to the audio directory. replace XXX with the name of the USB stick in "/dev". The Begleboard xM loads it to "/dev/sda1":
+
+	$ lsusb
+	$ sudo mount /dev/XXX audio -o umask=000
+	
+Now download some test audio and move to the USB stick:
+
+	$ cd /home/sonic/testaudio
+	$ sudo mv config.json labsounds ../audio/
+
+And check audio output is working by playing a sound:
+
+	$ aplay /home/sonic/audio/testlab/sound/accordionsolo1Hi.wav 
+
+Install pre-requisites and test the startup:
+
+	 $ sudo apt-get install  lua5.1 lua-posix lua-socket
+	 $ cd /home/sonic/app-findingsong/src
+	 $ sudo ./swamp
+
+Finally, to make the system auto-start:
+
+	$ sudo cp ~/sonic-bike-init/sonic-bike.service  /etc/systemd/system/sonic-bike.service
+	$ sudo systemctl enable sonic-bike.service
+	
+
+
+
+Archived Instructions
+============================
+Soem snippets that have helped us to install the software which may or may not be usefull. 
+
+### For the Beagle Bone Black
 Check if you are running kernel version "3.8.13-bone47":
 
     $ uname -a
-
-###Skip this next section if you are running the correct Kernel
+    
 If you have an earler or later version then we can't be sure that things will work properly as we found errors with audio playback in later versions of the kernal. To install the correct version of the kernel, as root (not sudo). You may need to perform these actions while within an SD card as there needs to be space to download large files:
 
     $ wget https://github.com/RobertCNelson/linux-dev/archive/3.8.13-bone47.tar.gz
@@ -22,32 +124,3 @@ If you have an earler or later version then we can't be sure that things will wo
     $ cd linux-dev-3.8.13-bone47
     $ sudo apt-get install bc lzma lzop libncurses5-dev 
     $ ./build_deb.sh
-
-###Configure the OS
-[TODO]
-
-## B. Init scripts
-[TODO]
-Clone this repository and setup the systemd service so it auto-starts
-
-    cd /home/sonic
-    git clone https://github.com/sonicbikes/sonic-bike-init.git
-    ln -s /home/sonic/sonic-bike-init/sonic-bike.service /etc/systemd/system/sonic-bike.service
-
-## C.The sonic bike software: app-findingsong OR app-swamp.
-There are currently two versions of the software available "app-swamp" which is the --original-- version and "app-findingsong" which is the latest version. The configeration file found on the sd card (instructions below) determines which of these should load up. Both versions of the software can be obtained from github:
-
-    cd /home/sonic
-    git clone https://github.com/sonicbikes/app-findingsong.git
-    git clone https://github.com/sonicbikes/app-swamp.git
-
-## D. The SD card: Setup
-
-A directory need to be created where the SD card will mount to:
-    
-    sudo mkdir /home/sonic/sdcard
-
-This directory should contain a configeration file named config.json and folders containing audio files
-
-
-
