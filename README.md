@@ -1,7 +1,9 @@
 Sonic Bike Init
 ============================
 
-Scripts used to startup the sonic bike system. There are four seperate elements that need to be installed/configured in order to get the system up and running on a Raspberry PI V2 Model B and/or a Beagleboard xM.
+A Bicrophonic Research Institute (BRI) Project: www.sonicbikes.net Find further information on building sonic bike here: http://wiki.sonicbikes.net/index.php?title=Hardware
+
+This repository conatins scripts used to startup the sonic bike system. There are four seperate elements that need to be installed/configured in order to get the system up and running on a Raspberry PI V2 Model B and/or a Beagleboard xM.
 
 A. The Hardware. <br />
 B. Operating system. <br />
