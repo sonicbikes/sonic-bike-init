@@ -9,7 +9,7 @@ C. The software.<br />
 E. USB Stick: Contains a configeration file, sound and map files.
 
 ## A. The Hardware
-The latest system is working with a RaspberryPi V2 Model B with debian Wheezy. the system has also been tested with a beagleboard xM. We got the system working with a Beagle Bone Black though we experienced audio glitches so recommend using the Raspberry Pi. To Build a complete system we used:
+The latest system is working with a RaspberryPi V2 Model B with debian Wheezy. the system has also been tested with a beagleboard xM. We got the system working with a Beagle Bone Black though we experienced audio glitches so recommend using the Raspberry Pi. To Build a complete portable system to mount on a bike you will need:
 
 - RaspberyPi V2 Model B.
 - 12v Amp + speakers.
