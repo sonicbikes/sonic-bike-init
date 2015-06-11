@@ -35,7 +35,7 @@ else
     # File doesn't exist so try mounting the sdcard/USB stick
     # mount -t vfat -o defaults,rw,umask=0 /dev/mmcblk0p1 /home/sonic/sdcard
     # For beagleboard xM:
-    mount /dev/sda1 audio -o umask=000
+    mount /dev/sda1 /home/sonic/audio -o umask=000
 fi
 
 # Where should we log startup messages?
