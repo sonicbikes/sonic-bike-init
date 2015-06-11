@@ -21,7 +21,12 @@ The latest system is working with a RaspberryPi V2 Model B with debian Wheezy. t
 
 ## B. Operating System
 
-### SPECIFIC " Beagleboard xM" INSTRUCTIONS
+### Specific "RaspberryPi V2 Model B" instructions
+Follow the normal Raspbian Wheezy installation instructions. Then you may need to improve audio by adding the following line to /boot/config.txt:
+
+	disable_audio_dither=1
+
+### Specific "Beagleboard xM" instructions
 Has been tested with and works for: Debian: Linux arm 4.0.2-armv7
 
 Download a prebuilt Debian image and verify the image:
